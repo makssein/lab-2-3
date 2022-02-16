@@ -15,9 +15,9 @@ int binarySearch(int* mas, int s, int n, int k){
         if(k>mas[c]) a = c;
         else b = c;
     }
+
     if(mas[b] == k) return b;
     else return -1;
-
 }
 
 int main() {
@@ -34,7 +34,6 @@ int main() {
         mas[i] = rand() % N + 1;
     }
 
-
     Timer simpleCycle;
     for(int i = 0; i < M; i++){
         for(int j = 0; j < N; j++){
@@ -45,7 +44,11 @@ int main() {
     }
     std::cout << "Время, затраченное на перебор обычным циклом: " << simpleCycle.elapsed() << std::endl;
 
-
+    Timer binarySearchTimer;
+    for(int i = 0; i < M; i++){
+        binarySearch(mas, 0, N-1, desiredNumber);
+    }
+    std::cout << "Время, затраченное на бинарный поиск: " << binarySearchTimer.elapsed() << std::endl;
 
     delete[] mas;
     return 0;
