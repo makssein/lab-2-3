@@ -1,6 +1,25 @@
 #include <iostream>
 #include "timer.hpp"
 
+int binarySearch(int* mas, int s, int n, int k){
+    if(k<mas[s]) return -1;
+    if(k==mas[s]) return 0;
+    if(k>mas[s]) return -1;
+
+    int a = s;
+    int b = n;
+
+    while(a+s<b){
+        int c = (a+b) / 2;
+
+        if(k>mas[c]) a = c;
+        else b = c;
+    }
+    if(mas[b] == k) return b;
+    else return -1;
+
+}
+
 int main() {
     srand(time(0));
 
@@ -26,7 +45,7 @@ int main() {
     }
     std::cout << "Время, затраченное на перебор обычным циклом: " << simpleCycle.elapsed() << std::endl;
 
-    
+
 
     delete[] mas;
     return 0;
