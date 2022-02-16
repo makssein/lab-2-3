@@ -1,4 +1,5 @@
 #include <iostream>
+#include "timer.hpp"
 
 int main() {
     srand(time(0));
@@ -14,14 +15,18 @@ int main() {
         mas[i] = rand() % N + 1;
     }
 
+
+    Timer simpleCycle;
     for(int i = 0; i < M; i++){
         for(int j = 0; j < N; j++){
             if(mas[j] == desiredNumber){
-                std::cout << desiredNumber << " " << mas[j] << " " << j << std::endl;
                 break;
             }
         }
     }
+    std::cout << "Время, затраченное на перебор обычным циклом: " << simpleCycle.elapsed() << std::endl;
+
+    
 
     delete[] mas;
     return 0;
