@@ -9,7 +9,7 @@ int binarySearch(int* mas, int s, int n, int k){
     int a = s;
     int b = n;
 
-    while(a+s<b){
+    while(a+1<b){
         int c = (a+b) / 2;
 
         if(k>mas[c]) a = c;
